@@ -51,7 +51,6 @@ public class PhoneProxy extends Handler implements Phone {
     protected Phone mActivePhone;
     protected CommandsInterface mCommandsInterface;
     protected IccSmsInterfaceManager mIccSmsInterfaceManager;
-    protected IccSmsInterfaceManagerProxy mIccSmsInterfaceManagerProxy;
     protected IccPhoneBookInterfaceManagerProxy mIccPhoneBookInterfaceManagerProxy;
     protected PhoneSubInfoProxy mPhoneSubInfoProxy;
     protected IccCardProxy mIccCardProxy;
@@ -94,9 +93,7 @@ public class PhoneProxy extends Handler implements Phone {
 
     protected void init() {
         mIccSmsInterfaceManager =
-            new IccSmsInterfaceManager((PhoneBase)this.mActivePhone);
-        mIccSmsInterfaceManagerProxy =
-            new IccSmsInterfaceManagerProxy(mActivePhone.getContext(), mIccSmsInterfaceManager);
+                new IccSmsInterfaceManager((PhoneBase)this.mActivePhone);
         mIccCardProxy = new IccCardProxy(mActivePhone.getContext(), mCommandsInterface);
     }
 
